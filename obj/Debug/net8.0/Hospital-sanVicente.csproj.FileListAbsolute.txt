@@ -1,0 +1,15 @@
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/obj/Debug/net8.0/Hospital-sanVicente.GeneratedMSBuildEditorConfig.editorconfig
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/obj/Debug/net8.0/Hospital-sanVicente.AssemblyInfoInputs.cache
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/obj/Debug/net8.0/Hospital-sanVicente.AssemblyInfo.cs
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/obj/Debug/net8.0/Hospital-sanVicente.csproj.CoreCompileInputs.cache
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/obj/Debug/net8.0/Hospital-sanVicente.sourcelink.json
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/bin/Debug/net8.0/Hospital-sanVicente
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/bin/Debug/net8.0/Hospital-sanVicente.deps.json
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/bin/Debug/net8.0/Hospital-sanVicente.runtimeconfig.json
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/bin/Debug/net8.0/Hospital-sanVicente.dll
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/bin/Debug/net8.0/Hospital-sanVicente.pdb
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/obj/Debug/net8.0/Hospital-sanVicente.dll
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/obj/Debug/net8.0/refint/Hospital-sanVicente.dll
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/obj/Debug/net8.0/Hospital-sanVicente.pdb
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/obj/Debug/net8.0/Hospital-sanVicente.genruntimeconfig.cache
+/home/Coder/Vídeos/david/C# DIA1/prueba de desempeño /Hospital-sanVicente/obj/Debug/net8.0/ref/Hospital-sanVicente.dll

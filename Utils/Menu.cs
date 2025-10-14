@@ -6,6 +6,7 @@ namespace Hospital_sanVicente.Utils;
 public class Menu
 {
     PatientServices patientServices = new PatientServices();
+  
     public void MainMenu()
     {
 
@@ -24,6 +25,8 @@ public class Menu
             {
                 case "1":
                     PatientMenu();
+                    ServicesValidation.ReturnToMenu();
+                    
                     break;
                 case "2":
                    // EmployeeMenu();
@@ -59,19 +62,24 @@ public class Menu
             case "1":
                 //VisualInterface.RegisterPatient();
                 patientServices.RegisterPatient();
+                ServicesValidation.ReturnToMenu();
 
                 break;
             case "2":
 
                 patientServices.ShowAllPatient();
+                ServicesValidation.ReturnToMenu();
 
                 break;
             case "3":
-                //PatientServices.UpdatePatient();
+                patientServices.UpdatePatient();
+                ServicesValidation.ReturnToMenu();
 
                 break;
             case "4":
                 patientServices.DeletePatient();
+                ServicesValidation.ReturnToMenu();
+
 
                 break;
             case "5":

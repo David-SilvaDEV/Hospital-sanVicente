@@ -144,7 +144,111 @@ public class PatientServices
                 }
             }
         }
-        ServicesValidation.ReturnToMenu();
+
     }
+
+    public void UpdatePatient()
+    {
+        VisualInterface.Interface(" Update Patient");
+
+        Console.WriteLine("Enter the name of the Patient you want to update: ");
+        string Uname = Console.ReadLine() ?? "";
+        Console.WriteLine("Enter the document number: ");
+        string Udocument = Console.ReadLine() ?? "";
+        Console.WriteLine("Enter the type of document: ");
+        string UtypeDocument = Console.ReadLine() ?? "";
+
+        bool found = false;
+        foreach (var patient in Data.patients)
+        {
+            if (patient.Name.Equals(Uname, StringComparison.OrdinalIgnoreCase) &&
+                patient.NumberDocument.Equals(Udocument) &&
+                patient.TypeDocument.Equals(UtypeDocument))
+            {
+                found = true;
+
+                bool updating = true;
+                while (updating)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Which Patient fields do you want to update?");
+                    Console.WriteLine("[1] Name");
+                    Console.WriteLine("[2] LastName");
+                    Console.WriteLine("[3] Age");
+                    Console.WriteLine("[4] Email");
+                    Console.WriteLine("[5] Phone Number");
+                    Console.WriteLine("[6] Exit");
+
+                    string field = Console.ReadLine() ?? "";
+                    VisualInterface.Animation("qualifying data.............");
+
+                    switch (field)
+                    {
+                        case "1":
+                            Console.WriteLine("Enter new name (or press Enter to keep current): ");
+                            string newName = Console.ReadLine() ?? "";
+                            if (!string.IsNullOrWhiteSpace(newName))
+                                patient.Name = newName;
+                            VisualInterface.Animation("updatting patient.............");
+
+                            break;
+
+                        case "2":
+                            Console.WriteLine("Enter new last name (or press Enter to keep current): ");
+                            string newLastName = Console.ReadLine() ?? "";
+                            if (!string.IsNullOrWhiteSpace(newLastName))
+                                patient.LastName = newLastName;
+                            VisualInterface.Animation("updatting patient.............");
+                            break;
+
+                        case "3":
+                            Console.WriteLine("Enter new age (or press Enter to keep current): ");
+                            string newAgeInput = Console.ReadLine() ?? "";
+                            if (int.TryParse(newAgeInput, out int newAge))
+                                patient.Age = newAge;
+                            VisualInterface.Animation("updatting patient.............");
+                            break;
+
+                        case "4":
+                            Console.WriteLine("Enter new email (or press Enter to keep current): ");
+                            string newEmail = Console.ReadLine() ?? "";
+                            if (!string.IsNullOrWhiteSpace(newEmail))
+                                patient.Email= newEmail;
+                            VisualInterface.Animation("updatting patient.............");
+                            break;
+
+                        case "5":
+                            Console.WriteLine("Enter new phone number (or press Enter to keep current): ");
+                            string newPhoneNumber = Console.ReadLine() ?? "";
+                            if (!string.IsNullOrWhiteSpace(newPhoneNumber))
+                                patient.PhoneNumber =newPhoneNumber ;
+                            VisualInterface.Animation("updatting patient.............");
+                            break;
+
+                        case "6":
+                            updating = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid option. Try again.");
+                            break;
+                    }
+                }
+
+                VisualInterface.GreenColor($"patient {patient.Name} information updated successfully.");
+                Console.WriteLine("----------------------------------------");
+                
+                return;
+            }
+        }
+
+        if (!found)
+        {
+            VisualInterface.RedColor("[X] wrong information (*-*)");
+            return;
+        }
+    }
+
 }
+
 
