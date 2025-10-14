@@ -11,6 +11,7 @@ namespace Hospital_sanVicente.Services
     public class AppointmentServices
     {
         AppointmentRepository appointmentRepository = new AppointmentRepository();
+        EmailSender emailSender = new EmailSender();  // Usamos EmailSender para enviar correos
 
         public void CreateAppointment()
         {
@@ -53,13 +54,23 @@ namespace Hospital_sanVicente.Services
                 appointment.patient = patient;
                 appointment.doctor = doctor;
 
-                // Agregar la cita a la lista de citas del pacient
-
-                // Agregar la cita a la lista de citas del doctor
-
+                // Agregar la cita a la lista de citas del paciente y del doctor
                 appointmentRepository.Register(patient, appointment, doctor);
-                // Actualizar en la base de datos si es necesario
-                // Data.SaveAppointments(); // Si usas una base de datos real
+
+                // Enviar correo de confirmación
+                string subject = "Confirmation of your Medical Appointment";
+                string body = $"Dear {patient.Name},\n\n" +
+                              "Notificamos que su cita ha sido agendada con éxito.\n\n" +
+                              $"Detalles de la cita:\n" +
+                              $"Fecha: {appointment.DateAndTime:dd MMMM yyyy}\n" +  // Día, Mes, Año
+                              $"Hora: {appointment.DateAndTime:HH:mm}\n\n" +      // Hora
+                              $"Doctor: Dr. {doctor.Name} ({doctor.Specialty})\n\n" +
+                              "Gracias por elegirnos. Si necesita cancelar o reprogramar, por favor contáctenos.\n\n" +
+                              "Saludos cordiales,\n" +
+                              "Hospital San Vicente";
+
+                // Enviar el correo
+                emailSender.SendEmail(patient.Email, subject, body);
 
                 return true;
             }
@@ -236,7 +247,82 @@ namespace Hospital_sanVicente.Services
 
         public void ShowAllAppointments()
         {
-            appointmentRepository.ShowAppointmentS();  
+            appointmentRepository.ShowAppointmentS();
         }
+
+        // Método para cancelar la cita
+        public bool CancelAppointment(DateTime dateTime, Patient patient, Doctor doctor)
+        {
+            // Buscar la cita en la lista de citas por fecha y hora
+            var appointment = Data.appointments.FirstOrDefault(a => a.DateAndTime == dateTime && a.patient == patient && a.doctor == doctor);
+
+            if (appointment != null && appointment.IsReserved)
+            {
+                // Eliminar la cita de las listas de citas del paciente y del doctor
+                appointmentRepository.Delete(patient, appointment, doctor);
+
+                Data.appointments.Remove(appointment);
+
+                Console.WriteLine("The appointment has been successfully canceled.");
+                return true;
+            }
+
+            Console.WriteLine("The appointment could not be canceled.");
+            return false;
+        }
+
+        public void CancelAppointmentMenu()
+{
+    // Pedir al usuario que ingrese los datos de la cita que quiere cancelar
+    Console.WriteLine("Enter the date and time of the appointment to cancel (yyyy-MM-dd HH:mm):");
+    string dateTimeInput = Console.ReadLine() ?? "";
+
+    if (DateTime.TryParseExact(dateTimeInput, "yyyy-MM-dd HH:mm", null, DateTimeStyles.None, out DateTime appointmentDateTime))
+    {
+        // Pedir al usuario los datos del paciente y doctor
+        Console.WriteLine("Enter patient's name:");
+        string patientName = Console.ReadLine() ?? "";
+
+        Console.WriteLine("Enter patient's document number:");
+        string patientDoc = Console.ReadLine() ?? "";
+
+        var patient = Data.patients.FirstOrDefault(p => p.Name.Equals(patientName, StringComparison.OrdinalIgnoreCase) && p.NumberDocument == patientDoc);
+
+        if (patient == null)
+        {
+            Console.WriteLine("Patient not found.");
+            return;
+        }
+
+        Console.WriteLine("Enter doctor's name:");
+        string doctorName = Console.ReadLine() ?? "";
+
+        var doctor = Data.doctors.FirstOrDefault(d => d.Name.Equals(doctorName, StringComparison.OrdinalIgnoreCase));
+
+        if (doctor == null)
+        {
+            Console.WriteLine("Doctor not found.");
+            return;
+        }
+
+        // Llamar a CancelAppointment (cambiar de ReserveAppointment a CancelAppointment)
+        bool isCanceled = CancelAppointment(appointmentDateTime, patient, doctor);
+
+        // Mostrar el resultado de la cancelación
+        if (isCanceled)
+        {
+            Console.WriteLine("The appointment has been successfully canceled.");
+        }
+        else
+        {
+            Console.WriteLine("The appointment could not be canceled.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Invalid date and time format.");
+    }
+}
+
     }
 }

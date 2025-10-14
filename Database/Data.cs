@@ -100,10 +100,23 @@ namespace Hospital_sanVicente.Database
                 PhoneNumber = "555-654-3210",
                 Specialty = "Pediatrician",
                 Appointments = new List<Appointment>()
+            },
+            new Doctor
+            {
+                Id = Guid.NewGuid(),
+                Name = "juan",
+                LastName = "perez",
+                Age = 25,
+                TypeDocument = "License",
+                NumberDocument = "8888888",
+                Email = "juan.perez@hospital.com",
+                PhoneNumber = "555-654-3210",
+                Specialty = "Pediatrician",
+                Appointments = new List<Appointment>()
             }
         };
-        
+
         // Lista de citas
-        public static List<Appointment> appointments = new List<Appointment>();  
+        public static List<Appointment> appointments = new List<Appointment>();
     }
 }

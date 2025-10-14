@@ -1,9 +1,10 @@
 using Hospital_sanVicente.Database;
 using Hospital_sanVicente.Models;
+using Hospital_sanVicente.Interfaces;
 
 namespace Hospital_sanVicente.Repositorys;
 
-public class PatientRepository
+public class PatientRepository: IPatientRepository
 {
     public void Register(Patient NewPatientRegister)
     {

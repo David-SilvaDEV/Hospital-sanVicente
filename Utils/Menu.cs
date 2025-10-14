@@ -1,5 +1,7 @@
 
+using Hospital_sanVicente.Models;
 using Hospital_sanVicente.Services;
+using Microsoft.VisualBasic;
 
 namespace Hospital_sanVicente.Utils;
 
@@ -166,9 +168,8 @@ public class Menu
         VisualInterface.Interface("Appointment Menu ");
         Console.WriteLine("[1] -create new appointment");
         Console.WriteLine("[2] -see appointment");
-        Console.WriteLine("[3] -Update appointment information");
-        Console.WriteLine("[4] -Delete appointment");
-        Console.WriteLine("[5] -Return to main menu");
+        Console.WriteLine("[3] -Delete appointment");
+        Console.WriteLine("[4] -Return to main menu");
 
         string answer = Console.ReadLine() ?? "";
         switch (answer)
@@ -181,12 +182,13 @@ public class Menu
                 break;
             case "2":
 
-
-                
+                appointmentServices.ShowAllAppointments();
+                ServicesValidation.ReturnToMenu();
                 break;
             case "3":
 
-
+                appointmentServices.CancelAppointmentMenu();
+                ServicesValidation.ReturnToMenu();
                 break;
             case "4":
 

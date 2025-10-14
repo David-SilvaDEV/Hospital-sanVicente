@@ -18,10 +18,15 @@ public class AppointmentRepository
     {
         patient.Appointments.Add(appointment);
         doctor.Appointments.Add(appointment);
+        
     }
     
-    public void Delete ()
+    public void Delete (Patient patient, Appointment appointment, Doctor doctor)
     {
-        
+        patient.Appointments.Remove(appointment);
+        doctor.Appointments.Remove(appointment);
+        appointment.Cancel();
+        Data.appointments.Remove(appointment);
+
     }
 }
