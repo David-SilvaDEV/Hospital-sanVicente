@@ -6,6 +6,7 @@ namespace Hospital_sanVicente.Utils;
 public class Menu
 {
     PatientServices patientServices = new PatientServices();
+    DoctorServices doctorServices = new DoctorServices();
   
     public void MainMenu()
     {
@@ -92,67 +93,69 @@ public class Menu
 
      }   
 
-    // public void EmployeeMenu()
-    // {
-    //     VisualInterface.Interface("Employee Menu");
-    //     Console.WriteLine("[1] Doctor");
-    //     Console.WriteLine("[2] Exit");
+    public void EmployeeMenu()
+    {
+        VisualInterface.Interface("Employee Menu");
+        Console.WriteLine("[1] Doctor");
+        Console.WriteLine("[2] Exit");
 
 
-    //     string answer = Console.ReadLine() ?? "";
-    //     switch (answer)
-    //     {
-    //         case "1":
-                
-    //             break;
-    //         case "2":
-                
-    //             break;
-    //         default:
-    //             ServicesValidation.ReturnToMenu();
-    //             break;
-    //     }
+        string answer = Console.ReadLine() ?? "";
+        switch (answer)
+        {       
+            case "1":
+                DoctoryMenu();
+                ServicesValidation.ReturnToMenu();
+                break;
+            case "2":
+                ServicesValidation.ReturnToMenu();
+                break;
+            default:
+                ServicesValidation.ReturnToMenu();
+                break;
+        }
 
-    // }
+    }
 
-    // public void DoctoryMenu()
-    // {
-    //     VisualInterface.Interface(" Doctorian Menu");
-    //     Console.WriteLine("[1] -Register Doctorian");
-    //     Console.WriteLine("[2] -View Doctorian information");
-    //     Console.WriteLine("[3] -Update Doctorian information");
-    //     Console.WriteLine("[4] -Delete Doctorian");
-    //     Console.WriteLine("[5] -Return to main menu");
-    //     string answer = Console.ReadLine() ?? "";
-    //     switch (answer)
-    //     {
-    //         case "1":
-    //             //VisualInterface.RegisterPatient();
-    //             DoctorianServices.RegisterDoctorian();
+    public void DoctoryMenu()
+    {
+        VisualInterface.Interface(" Doctor Menu");
+        Console.WriteLine("[1] -Register Docto");
+        Console.WriteLine("[2] -View Doctor information");
+        Console.WriteLine("[3] -Update Doctor information");
+        Console.WriteLine("[4] -Delete Doctor");
+        Console.WriteLine("[5] -Return to main menu");
+        string answer = Console.ReadLine() ?? "";
+        switch (answer)
+        {
+            case "1":
+                //VisualInterface.RegisterPatient();
+                doctorServices.RegisterDoctor();
+                ServicesValidation.ReturnToMenu();
 
-    //             break;
-    //         case "2":
+                break;
+            case "2":
 
-    //             DoctorianServices.viewDoctorianinformation();
+                //DoctorianServices.viewDoctorianinformation();
 
-    //             break;
-    //         case "3":
-    //             DoctorianServices.UpdateDoctorian();
+                break;
+            case "3":
+                //DoctorianServices.UpdateDoctorian();
 
-    //             break;
-    //         case "4":
-    //             DoctorianServices.DeleteDoctorian();
+                break;
+            case "4":
+                //DoctorianServices.DeleteDoctorian();
 
-    //             break;
-    //         case "5":
-    //             MainMenu();
-    //             break;
-    //         default:
-    //             ServicesValidation.ReturnToMenu();
-    //             break;
-    //     }
+                break;
+            case "5":
+                MainMenu();
+                break;
+            default:
+                ServicesValidation.ReturnToMenu();
+                break;
+        }
 
-    // }
+    }
 
     // public void AppointmentMenu()
     // {

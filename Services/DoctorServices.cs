@@ -73,10 +73,10 @@ public class DoctorServices
 
         doctorReposytory.Register(NewDoctor);
         VisualInterface.GreenColor("Doctor added successfully!");
-        ServicesValidation.ReturnToMenu();
-
 
     }
+    
+    
 }
 
 
