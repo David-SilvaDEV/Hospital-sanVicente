@@ -3,11 +3,11 @@ using Hospital_sanVicente.Models;
 
 namespace Hospital_sanVicente.Database;
 
-public class Data
+public static class Data
 {
-    List<Patient> patients = [];
+    public static List<Patient> patients = [];
 
-    List<Doctor> doctors = [];
+    //public static List<Doctor> doctors = [];
 
-    List<Appointment> appointments = [];
+    // public static  List<Appointment> appointments = [];
 }

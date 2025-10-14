@@ -1,8 +1,11 @@
 
+using Hospital_sanVicente.Services;
+
 namespace Hospital_sanVicente.Utils;
 
 public class Menu
 {
+    PatientServices patientServices = new PatientServices();
     public void MainMenu()
     {
 
@@ -23,10 +26,10 @@ public class Menu
                     PatientMenu();
                     break;
                 case "2":
-                    EmployeeMenu();
+                   // EmployeeMenu();
                     break;
                 case "3":
-                    AppointmentMenu();
+                   // AppointmentMenu();
                     break;
                 case "4":
                     Console.WriteLine("Exiting the program. Goodbye!");
@@ -55,20 +58,20 @@ public class Menu
         {
             case "1":
                 //VisualInterface.RegisterPatient();
-                PatientServices.RegisterPatient();
+                patientServices.RegisterPatient();
 
                 break;
             case "2":
 
-                PatientServices.viewPatientinformation();
+                patientServices.ShowAllPatient();
 
                 break;
             case "3":
-                PatientServices.UpdatePatient();
+                //PatientServices.UpdatePatient();
 
                 break;
             case "4":
-                PatientServices.DeletePatient();
+                patientServices.DeletePatient();
 
                 break;
             case "5":
@@ -79,108 +82,108 @@ public class Menu
                 break;
         }
 
-    }   
+     }   
 
-    public void EmployeeMenu()
-    {
-        VisualInterface.Interface("Employee Menu");
-        Console.WriteLine("[1] Doctor");
-        Console.WriteLine("[2] Exit");
+    // public void EmployeeMenu()
+    // {
+    //     VisualInterface.Interface("Employee Menu");
+    //     Console.WriteLine("[1] Doctor");
+    //     Console.WriteLine("[2] Exit");
 
 
-        string answer = Console.ReadLine() ?? "";
-        switch (answer)
-        {
-            case "1":
+    //     string answer = Console.ReadLine() ?? "";
+    //     switch (answer)
+    //     {
+    //         case "1":
                 
-                break;
-            case "2":
+    //             break;
+    //         case "2":
                 
-                break;
-            default:
-                ServicesValidation.ReturnToMenu();
-                break;
-        }
+    //             break;
+    //         default:
+    //             ServicesValidation.ReturnToMenu();
+    //             break;
+    //     }
 
-    }
+    // }
 
-    public void DoctoryMenu()
-    {
-        VisualInterface.Interface(" Doctorian Menu");
-        Console.WriteLine("[1] -Register Doctorian");
-        Console.WriteLine("[2] -View Doctorian information");
-        Console.WriteLine("[3] -Update Doctorian information");
-        Console.WriteLine("[4] -Delete Doctorian");
-        Console.WriteLine("[5] -Return to main menu");
-        string answer = Console.ReadLine() ?? "";
-        switch (answer)
-        {
-            case "1":
-                //VisualInterface.RegisterPatient();
-                DoctorianServices.RegisterDoctorian();
+    // public void DoctoryMenu()
+    // {
+    //     VisualInterface.Interface(" Doctorian Menu");
+    //     Console.WriteLine("[1] -Register Doctorian");
+    //     Console.WriteLine("[2] -View Doctorian information");
+    //     Console.WriteLine("[3] -Update Doctorian information");
+    //     Console.WriteLine("[4] -Delete Doctorian");
+    //     Console.WriteLine("[5] -Return to main menu");
+    //     string answer = Console.ReadLine() ?? "";
+    //     switch (answer)
+    //     {
+    //         case "1":
+    //             //VisualInterface.RegisterPatient();
+    //             DoctorianServices.RegisterDoctorian();
 
-                break;
-            case "2":
+    //             break;
+    //         case "2":
 
-                DoctorianServices.viewDoctorianinformation();
+    //             DoctorianServices.viewDoctorianinformation();
 
-                break;
-            case "3":
-                DoctorianServices.UpdateDoctorian();
+    //             break;
+    //         case "3":
+    //             DoctorianServices.UpdateDoctorian();
 
-                break;
-            case "4":
-                DoctorianServices.DeleteDoctorian();
+    //             break;
+    //         case "4":
+    //             DoctorianServices.DeleteDoctorian();
 
-                break;
-            case "5":
-                MainMenu();
-                break;
-            default:
-                ServicesValidation.ReturnToMenu();
-                break;
-        }
+    //             break;
+    //         case "5":
+    //             MainMenu();
+    //             break;
+    //         default:
+    //             ServicesValidation.ReturnToMenu();
+    //             break;
+    //     }
 
-    }
+    // }
 
-    public void AppointmentMenu()
-    {
-        VisualInterface.Interface("Appointment Menu ");
-        Console.WriteLine("[1] -create new appointment");
-        Console.WriteLine("[2] -see appointment");
-        Console.WriteLine("[3] -Update appointment information");
-        Console.WriteLine("[4] -Delete appointment");
-        Console.WriteLine("[5] -Return to main menu");
+    // public void AppointmentMenu()
+    // {
+    //     VisualInterface.Interface("Appointment Menu ");
+    //     Console.WriteLine("[1] -create new appointment");
+    //     Console.WriteLine("[2] -see appointment");
+    //     Console.WriteLine("[3] -Update appointment information");
+    //     Console.WriteLine("[4] -Delete appointment");
+    //     Console.WriteLine("[5] -Return to main menu");
 
-        string answer = Console.ReadLine() ?? "";
-        switch (answer)
-        {
-            case "1":
+    //     string answer = Console.ReadLine() ?? "";
+    //     switch (answer)
+    //     {
+    //         case "1":
 
-                appointmentServices.CreateAppointmentMenu();
+    //             appointmentServices.CreateAppointmentMenu();
 
-                break;
-            case "2":
-
-
-                Appointment.ShowReservedAppointments();
-                break;
-            case "3":
+    //             break;
+    //         case "2":
 
 
-                break;
-            case "4":
+    //             Appointment.ShowReservedAppointments();
+    //             break;
+    //         case "3":
 
 
-                break;
-            case "5":
-                MainMenu();
-                break;
-            default:
-                ServicesValidation.ReturnToMenu();
-                break;
-        }
-    }
+    //             break;
+    //         case "4":
+
+
+    //             break;
+    //         case "5":
+    //             MainMenu();
+    //             break;
+    //         default:
+    //             ServicesValidation.ReturnToMenu();
+    //             break;
+    //     }
+    // }
 
 
 }
