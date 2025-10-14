@@ -3,7 +3,7 @@ using Hospital_sanVicente.Models;
 
 namespace Hospital_sanVicente.Repositorys;
 
-    public class PatientRepository
+public class PatientRepository
 {
     public void Register(Patient NewPatientRegister)
     {
@@ -28,3 +28,4 @@ namespace Hospital_sanVicente.Repositorys;
         Data.patients.Remove(patient);
     }
 }   
+

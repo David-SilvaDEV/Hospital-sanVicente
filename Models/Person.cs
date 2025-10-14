@@ -16,14 +16,14 @@ public abstract class Person
 
     
 
-        public void ShowInfoBasic()
+        public virtual void ShowInfoBasic()
         {
             Console.WriteLine($"{Name} {LastName} - Document: {TypeDocument} {NumberDocument}");
             Console.WriteLine($"--");
 
         }
 
-        public void ShowFullInfo()
+        public virtual  void ShowFullInfo()
         {
             Console.Clear();
             Console.WriteLine("----------------------------------------");

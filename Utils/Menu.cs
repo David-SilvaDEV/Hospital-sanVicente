@@ -7,7 +7,7 @@ public class Menu
 {
     PatientServices patientServices = new PatientServices();
     DoctorServices doctorServices = new DoctorServices();
-  
+
     public void MainMenu()
     {
 
@@ -27,13 +27,13 @@ public class Menu
                 case "1":
                     PatientMenu();
                     ServicesValidation.ReturnToMenu();
-                    
+
                     break;
                 case "2":
-                   // EmployeeMenu();
+                    EmployeeMenu();
                     break;
                 case "3":
-                   // AppointmentMenu();
+                    // AppointmentMenu();
                     break;
                 case "4":
                     Console.WriteLine("Exiting the program. Goodbye!");
@@ -91,7 +91,7 @@ public class Menu
                 break;
         }
 
-     }   
+    }
 
     public void EmployeeMenu()
     {
@@ -102,7 +102,7 @@ public class Menu
 
         string answer = Console.ReadLine() ?? "";
         switch (answer)
-        {       
+        {
             case "1":
                 DoctoryMenu();
                 ServicesValidation.ReturnToMenu();
@@ -135,16 +135,18 @@ public class Menu
 
                 break;
             case "2":
-
-                //DoctorianServices.viewDoctorianinformation();
+                doctorServices.ShowAllDoctors();
+                ServicesValidation.ReturnToMenu();
 
                 break;
             case "3":
-                //DoctorianServices.UpdateDoctorian();
+                doctorServices.UpdateDoctor();
+                ServicesValidation.ReturnToMenu();
 
                 break;
             case "4":
-                //DoctorianServices.DeleteDoctorian();
+                doctorServices.Deletedoctor();
+                ServicesValidation.ReturnToMenu();
 
                 break;
             case "5":
