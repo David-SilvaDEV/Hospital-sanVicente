@@ -8,6 +8,8 @@ public class Menu
     PatientServices patientServices = new PatientServices();
     DoctorServices doctorServices = new DoctorServices();
 
+    AppointmentServices appointmentServices = new AppointmentServices();
+
     public void MainMenu()
     {
 
@@ -33,7 +35,7 @@ public class Menu
                     EmployeeMenu();
                     break;
                 case "3":
-                    // AppointmentMenu();
+                     AppointmentMenu();
                     break;
                 case "4":
                     Console.WriteLine("Exiting the program. Goodbye!");
@@ -159,44 +161,45 @@ public class Menu
 
     }
 
-    // public void AppointmentMenu()
-    // {
-    //     VisualInterface.Interface("Appointment Menu ");
-    //     Console.WriteLine("[1] -create new appointment");
-    //     Console.WriteLine("[2] -see appointment");
-    //     Console.WriteLine("[3] -Update appointment information");
-    //     Console.WriteLine("[4] -Delete appointment");
-    //     Console.WriteLine("[5] -Return to main menu");
+    public void AppointmentMenu()
+    {
+        VisualInterface.Interface("Appointment Menu ");
+        Console.WriteLine("[1] -create new appointment");
+        Console.WriteLine("[2] -see appointment");
+        Console.WriteLine("[3] -Update appointment information");
+        Console.WriteLine("[4] -Delete appointment");
+        Console.WriteLine("[5] -Return to main menu");
 
-    //     string answer = Console.ReadLine() ?? "";
-    //     switch (answer)
-    //     {
-    //         case "1":
+        string answer = Console.ReadLine() ?? "";
+        switch (answer)
+        {
+            case "1":
 
-    //             appointmentServices.CreateAppointmentMenu();
+                appointmentServices.CreateAppointment();
+                ServicesValidation.ReturnToMenu();
 
-    //             break;
-    //         case "2":
-
-
-    //             Appointment.ShowReservedAppointments();
-    //             break;
-    //         case "3":
+                break;
+            case "2":
 
 
-    //             break;
-    //         case "4":
+                
+                break;
+            case "3":
 
 
-    //             break;
-    //         case "5":
-    //             MainMenu();
-    //             break;
-    //         default:
-    //             ServicesValidation.ReturnToMenu();
-    //             break;
-    //     }
-    // }
+                break;
+            case "4":
+
+
+                break;
+            case "5":
+                MainMenu();
+                break;
+            default:
+                ServicesValidation.ReturnToMenu();
+                break;
+        }
+    }
 
 
 }

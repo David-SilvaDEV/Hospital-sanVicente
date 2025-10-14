@@ -5,7 +5,7 @@ namespace Hospital_sanVicente.Models;
 public class Doctor : Person
 {
     public string Specialty { get; set; }
-    List<Appointment> appointments { get; set; }
+    public List<Appointment> Appointments { get; set; }
 
     public override void ShowInfoBasic()
     {
