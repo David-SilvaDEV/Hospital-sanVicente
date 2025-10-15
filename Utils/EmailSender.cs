@@ -11,8 +11,8 @@ namespace Hospital_sanVicente.Utils
             // Credenciales de Mailtrap (valores proporcionados por ti)
             string smtpServer = "sandbox.smtp.mailtrap.io";  // Servidor SMTP de Mailtrap
             int smtpPort = 2525;                             // Puerto SMTP de Mailtrap (2525 es común)
-            string smtpUsername = "21040afaca8e84";          // Tu nombre de usuario Mailtrap
-            string smtpPassword = "79bca208922c1d";                 // Tu contraseña Mailtrap (recuerda usar tu contraseña real)
+            string smtpUsername = "21040afaca8e84";          // nombre de usuario Mailtrap
+            string smtpPassword = "79bca208922c1d";                 // contraseña Mailtrap (recuerda usar tu contraseña real)
 
             try
             {
