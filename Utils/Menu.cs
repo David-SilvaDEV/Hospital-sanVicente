@@ -37,7 +37,7 @@ public class Menu
                     EmployeeMenu();
                     break;
                 case "3":
-                     AppointmentMenu();
+                    AppointmentMenu();
                     break;
                 case "4":
                     Console.WriteLine("Exiting the program. Goodbye!");
@@ -191,10 +191,6 @@ public class Menu
                 ServicesValidation.ReturnToMenu();
                 break;
             case "4":
-
-
-                break;
-            case "5":
                 MainMenu();
                 break;
             default:
